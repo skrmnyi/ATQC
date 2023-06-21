@@ -20,9 +20,34 @@ public class Variables {
         int lastNumbers[] = {100, 99, 98, 97};
 
         String arrayWords[] = {"Hello", "World"};
+        
+        int varWithoutValue = 0; 
 
         System.out.println(longVariable);
         System.out.println(arrayWords.toString());
+        System.out.println(varWithoutValue);
+
+
+        double check = 0.5;
+        float check2 = 0.5f;
+        if (check == check2) {
+            System.out.println("the values are the same");
+        }
+
+
+        ///int checkDevide = 2/0;
+        ///int checkDevide2 = 0/2;
+
+        int reasignToLong = 123;
+        long reasignToInt = 1234444L;
+        /// reasignToLong =  reasignToInt; error diffrent types
+
+
+
+
+
+
+
 
     }
 

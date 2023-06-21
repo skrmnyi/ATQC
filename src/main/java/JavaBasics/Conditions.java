@@ -11,6 +11,9 @@ public class Conditions {
         else {
             System.out.println(b + " is bigger than " + a);
         }
+
+        System.out.println(a>b ? b + " is bigger than " + a: b + " is bigger than " + a);
+
     }
 }
 

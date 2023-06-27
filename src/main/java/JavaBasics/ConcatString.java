@@ -28,7 +28,7 @@ public class ConcatString {
 
 
         String hw2 = "egweerw ereferw kuy yu i ";
-        System.out.println(hw2.toUpperCase(char e))
+        System.out.println(hw2.toUpperCase());
 
     }
 

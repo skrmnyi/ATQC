@@ -27,9 +27,19 @@ public class Loops {
         }
 
         ArrayList<String> list = new ArrayList<>();
-
-
-
+        list.add("some element_1");
+        list.add("some element_2");
+        list.add("some element_3");
+        list.add("some element_4");
+        list.add("some element_5");
+        list.add("some element_6");
+        list.add("some element_7");
+        list.add("some element_8");
+        list.add("some element_9");
+        list.add("some element_10");
+        for (String str: list) {
+            System.out.println(str);
+        }
 
     }
 

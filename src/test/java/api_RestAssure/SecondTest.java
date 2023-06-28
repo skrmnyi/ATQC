@@ -13,7 +13,6 @@ import static org.hamcrest.Matchers.equalTo;
 public class SecondTest extends BaseApiTest {
     // better implementation with inheritance and dry principle
 
-
     @Test
     public void checkResponseStatus() {
 

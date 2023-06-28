@@ -8,12 +8,39 @@
       "Adresses": "array"
     }
   ],
-  "errors": "String",
-  "warnings": "array",
-  "type": "array",
-  "info": "array",
-  "messageCodes": "array",
-  "errorCodes": "array",
-  "warningCodes": "array",
-  "infoCodes": "integer"
+  "errors": {
+    "type": "array",
+    "items": {}
+  },
+  "warnings": {
+    "type": "array",
+    "items": {}
+  },
+  "info": {
+    "type": "object",
+    "properties": {
+      "totalCount": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "totalCount"
+    ]
+  },
+  "messageCodes": {
+    "type": "array",
+    "items": {}
+  },
+  "errorCodes": {
+    "type": "array",
+    "items": {}
+  },
+  "warningCodes": {
+    "type": "array",
+    "items": {}
+  },
+  "infoCodes": {
+    "type": "array",
+    "items": {}
+  }
 }

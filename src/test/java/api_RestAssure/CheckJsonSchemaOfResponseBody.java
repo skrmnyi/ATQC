@@ -6,7 +6,7 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
-import static org.hamcrest.Matchers.equalTo;
+
 
 public class CheckJsonSchemaOfResponseBody extends BaseApiTest {
     @Test
@@ -20,8 +20,8 @@ public class CheckJsonSchemaOfResponseBody extends BaseApiTest {
                 .spec(responseSpecification) // use request specification from BaseApiTest
                 .statusCode(200)
                 .assertThat()
-                .body(matchesJsonSchema(new File(System.getProperty("user.dir"))+
-                        "src/main/resources/validators.json"));
+                .body(matchesJsonSchema(new File(System.getProperty("user.dir") +
+                        "/src/main/resources/validators.json")));
 
     }
 }

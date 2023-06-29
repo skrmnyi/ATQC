@@ -3,6 +3,7 @@ package api_Retrofit_tests;
 import api_Retrofit_endpoints.UserService;
 import api_Retrofit_models.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import retrofit2.Retrofit;

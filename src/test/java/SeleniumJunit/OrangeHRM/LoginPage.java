@@ -24,8 +24,12 @@ public class LoginPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
-    public void successfulLogin(String userName, String password){
+    public MainPage successfulLogin(String userName, String password) {
         userNameField.sendKeys(userName);
         passwordField.sendKeys(password);
         submitButton.click();
-    }}
+        MainPage mainPage = new MainPage();
+        return mainPage;
+
+    }
+}

@@ -10,6 +10,5 @@ public class CheckLoginTest extends BaseSeleniumTest {
     public void checkLoginTest() {
         LoginPage loginPage = new LoginPage();
         loginPage.successfulLogin("Admin", "admin123");
-
     }
 }

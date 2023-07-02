@@ -28,8 +28,7 @@ public class LoginPage extends BaseSeleniumPage {
         userNameField.sendKeys(userName);
         passwordField.sendKeys(password);
         submitButton.click();
-        MainPage mainPage = new MainPage();
-        return mainPage;
+        return new MainPage();
 
     }
 }

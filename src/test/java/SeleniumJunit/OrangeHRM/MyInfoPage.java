@@ -16,6 +16,7 @@ public class MyInfoPage extends BaseSeleniumPage {
     @FindBy(xpath = "//a[text()=\"Personal Details\"]")
     private WebElement personalDetails;
 
+
     @FindBy(name = "firstName")
     private WebElement firstNameInput;
 

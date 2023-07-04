@@ -19,11 +19,9 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
         mainPage.goToMyInfoPage();
         Assertions.assertTrue(myInfoPage.getPageTitle().contains("PIM"));
 
-
-        myInfoPage.macCleanHack(myInfoPage.ge);
-//        myInfoPage.updateUserName("NewUser", "UpdatedLastName");
-//        Assertions.assertTrue(myInfoPage.getUserLastName().equals("NewUser"));
-//        Assertions.assertTrue(myInfoPage.getUserLastName().equals("UpdatedLastName"));
+        myInfoPage.updateUserName("NewUser", "UpdatedLastName");
+        Assertions.assertTrue(myInfoPage.getUserLastName().equals("NewUser"));
+        Assertions.assertTrue(myInfoPage.getUserLastName().equals("UpdatedLastName"));
 
 
     }

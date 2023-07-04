@@ -1,6 +1,4 @@
-package api_RestAssure2;
-
-import com.google.gson.annotations.Expose;
+package api_RestAssure;
 
 public class UserData {
     private Integer id;

@@ -1,7 +1,6 @@
-package api_RestAssure2;
+package api_RestAssure;
 
 import io.restassured.http.ContentType;
-import org.apache.logging.log4j.core.util.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

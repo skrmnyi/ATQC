@@ -1,6 +1,7 @@
 package OrangeHRM;
 
 import Config.BaseSeleniumPage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -25,23 +26,22 @@ public class MyInfoPage extends BaseSeleniumPage {
     @FindBy(xpath = "//*[contains(@class, 'orangehrm-form-hint')]//following-sibling::button")
     private WebElement submitButton;
 
+    @FindBy(id = "id=\"oxd-toaster_1\"")
+    public WebElement successfulToaster;
+
     public MyInfoPage() {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
-
     public MyInfoPage updateUserName(String firstName, String lastName) {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         firstNameInput.clear();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        firstNameInput.sendKeys(firstName);
-
-
+        firstNameInput.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), firstName);
+        driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         middleNameInput.clear();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        middleNameInput.sendKeys(lastName);
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        middleNameInput.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), lastName);
+        driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         submitButton.click();
+        driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         return new MyInfoPage();
     }
 
@@ -56,4 +56,10 @@ public class MyInfoPage extends BaseSeleniumPage {
     public String getUserLastName() {
         return middleNameInput.getText();
     }
+
+    public String getToasterMessage() {
+        return successfulToaster.getText();
+    }
+
+
 }

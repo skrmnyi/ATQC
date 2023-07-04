@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MainPage extends BaseSeleniumPage {
+public class DashboardPage extends BaseSeleniumPage {
 
     //1й спосіб -  записувати елементи а потім звертатись до них для пошуку
     // пошук елемента відбуватиметься кожен запуск теста, навіть якщо така перевірка не запланована
@@ -22,14 +22,11 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//span[text()='My Info']")
     private WebElement myInfoMenuItem;
 
-    public MainPage() {
+    public DashboardPage() {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
-    public MyInfoPage goToMyInfoPage() {
-        myInfoMenuItem.click();
-        return new MyInfoPage();
-    }
+
 
 }
 

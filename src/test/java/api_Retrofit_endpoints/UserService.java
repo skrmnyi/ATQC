@@ -14,7 +14,6 @@ public interface UserService {
     //для того щоб добавити ?параметри в запит, використовується анотація Query.
 
 
-
     //отримання одного користувача по айді
     @GET("api/users/{id}")
     Call<SingleUserResponse> getUserById(@Path("id") int id); //параметер айді, який буде вставлений в ендпойнт

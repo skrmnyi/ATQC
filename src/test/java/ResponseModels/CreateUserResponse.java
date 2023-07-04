@@ -1,4 +1,4 @@
-package api_Retrofit_models;
+package ResponseModels;
 
 public class CreateUserResponse {
     private String name;

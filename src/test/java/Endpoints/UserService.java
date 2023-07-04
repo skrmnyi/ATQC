@@ -1,6 +1,6 @@
-package api_Retrofit_endpoints;
+package Endpoints;
 
-import api_Retrofit_models.*;
+import ResponseModels.*;
 import retrofit2.Call;
 import retrofit2.http.*;
 

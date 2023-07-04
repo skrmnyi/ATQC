@@ -1,4 +1,4 @@
-package api_Retrofit_models;
+package ResponseModels;
 
 import java.util.List;
 

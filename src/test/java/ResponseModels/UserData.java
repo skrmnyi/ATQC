@@ -1,4 +1,4 @@
-package api_RestAssure;
+package ResponseModels;
 
 public class UserData {
     private Integer id;

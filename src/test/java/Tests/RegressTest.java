@@ -1,5 +1,6 @@
-package api_RestAssure;
+package Tests;
 
+import ResponseModels.UserData;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

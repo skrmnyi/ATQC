@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class MyInfoPage extends BaseSeleniumPage {
 
     @FindBy(xpath = "//h6[text()='PIM']")
@@ -27,19 +29,18 @@ public class MyInfoPage extends BaseSeleniumPage {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
-    public void macCleanHack(WebElement element) {
-        String inputText = element.getAttribute("value");
-        if( inputText != null ) {
-            for(int i=0; i<inputText.length();i++) {
-                element.sendKeys(Keys.BACK_SPACE);
-            }
-        }
-
-    }
 
     public MyInfoPage updateUserName (String firstName, String lastName){
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        firstNameInput.clear();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         firstNameInput.sendKeys(firstName);
+
+
+        middleNameInput.clear();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         middleNameInput.sendKeys(lastName);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         submitButton.click();
         return new MyInfoPage();
     }

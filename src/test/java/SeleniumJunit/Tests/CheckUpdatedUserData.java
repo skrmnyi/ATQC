@@ -17,9 +17,10 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
 
         loginPage.successfulLogin("Admin", "admin123");
         mainPage.goToMyInfoPage();
+
         Assertions.assertTrue(myInfoPage.getPageTitle().contains("PIM"));
 
-        myInfoPage.updateUserName("NewUser", "UpdatedLastName");
+        myInfoPage.updateUserName("justName_notUnique", "notUniquieAbracadabra");
         Assertions.assertTrue(myInfoPage.getUserLastName().equals("NewUser"));
         Assertions.assertTrue(myInfoPage.getUserLastName().equals("UpdatedLastName"));
 

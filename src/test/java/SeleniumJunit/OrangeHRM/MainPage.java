@@ -12,9 +12,7 @@ public class MainPage extends BaseSeleniumPage {
     // пошук елемента відбуватиметься кожен запуск теста, навіть якщо така перевірка не запланована
 
     //private final By dashboardMenuItemm = By.xpath("//span[text()='Dashboard']");
-
-   //private WebElement dashboardMenuItemElement = driver.findElement(dashboardMenuItemm);
-
+    //private WebElement dashboardMenuItemElement = driver.findElement(dashboardMenuItemm);
 
     //2 спосіб - більш зручний. через анотацію файнд бай, пошук елемента відбувається тільки тоді коли йде звернення до елемента
 

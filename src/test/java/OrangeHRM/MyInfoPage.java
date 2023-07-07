@@ -36,12 +36,8 @@ public class MyInfoPage extends BaseSeleniumPage {
     public MyInfoPage updateUserName(String firstName, String lastName) {
         firstNameInput.clear();
         firstNameInput.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), firstName);
-        //driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         middleNameInput.clear();
         middleNameInput.sendKeys(Keys.HOME, Keys.chord(Keys.SHIFT, Keys.END), lastName);
-        //driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
-        //submitButton.click();
-        //driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         return new MyInfoPage();
     }
 

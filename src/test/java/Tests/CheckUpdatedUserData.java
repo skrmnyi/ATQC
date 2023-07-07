@@ -19,16 +19,15 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
         MyInfoPage myInfoPage = new MyInfoPage();
         loginPage.successfulLogin("Admin", "admin123");
         navigationBar.goToMyInfoPage();
+        //TO:DO please move this assert inside  goToMyInfoPage() to make sure it will be used each time
         Assertions.assertTrue(myInfoPage.getPageTitle().contains("PIM"));
 
         myInfoPage.updateUserName("NewName", "NewLastName");
 
-//        Assertions.assertTrue(myInfoPage.getUserLastName().equals("NewName"));
-//        Assertions.assertTrue(myInfoPage.getUserLastName().toString().equals("NewLastName"));
+        Assertions.assertEquals(myInfoPage.getUserName(), "NewName");
+        Assertions.assertEquals(myInfoPage.getUserLastName(), ("NewLastName"));
 
-         Assertions.assertTrue(myInfoPage.getToasterMessage().equals("Success"));
-
-
+        Assertions.assertTrue(myInfoPage.getToasterMessage().equals("Success"));
 
 
     }

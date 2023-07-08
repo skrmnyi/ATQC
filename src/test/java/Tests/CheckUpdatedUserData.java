@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 public class CheckUpdatedUserData extends BaseSeleniumTest {
     @Test
-    public void checkUpdatedUserData() {
+    public void checkUpdatedUserData() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         NavigationBar navigationBar = new NavigationBar();
         MyInfoPage myInfoPage = new MyInfoPage();
@@ -21,8 +21,8 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
 
         myInfoPage.updateUserName("NewName", "NewLastName");
 
-        Assertions.assertEquals(myInfoPage.getUserName(), "NewName");
-        Assertions.assertEquals(myInfoPage.getUserLastName(), ("NewLastName"));
-
+        Assertions.assertEquals( "NewName", myInfoPage.getUserName());
+        Assertions.assertEquals( "NewLastName", myInfoPage.getUserLastName());
+        myInfoPage.checkIfSuccessfulMessageDisplayed();
     }
 }

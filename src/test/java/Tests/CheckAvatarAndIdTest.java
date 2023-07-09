@@ -17,7 +17,7 @@ public class CheckAvatarAndIdTest {
         Specification.installSpecification(Specification.requestSpecification(), Specification.responseSpecOK200());
         List<UserData> users = given()
                 .when()
-                .get("api/users?page=2")//method type + request parameters that to url
+                .get("api/users?page=1")//method type + request parameters that to url
                 .then().log().all()// //display all data from
                 .extract().body().jsonPath().getList("data", UserData.class);
 

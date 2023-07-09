@@ -1,6 +1,9 @@
 package Tests;
 
 import ResponseModels.UserData;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class RegressTest {
     private final static String URL = "https://reqres.in/";
     @Test
-    public void checkAvatarAndIdTest(){
+    public void checkAvatarAndIdTest() {
         List<UserData> users = given()
                 .when()
                 .contentType(ContentType.JSON)

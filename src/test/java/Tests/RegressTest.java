@@ -1,30 +1,34 @@
 package Tests;
 
+import ResponseModels.Specification;
 import ResponseModels.UserData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
 public class RegressTest {
-    private final static String URL = "https://reqres.in/";
+
     @Test
     public void checkAvatarAndIdTest() {
+        Specification.installSpecification(Specification.requestSpecification(), Specification.responseSpecOK200());
         List<UserData> users = given()
                 .when()
-                .contentType(ContentType.JSON)
-                .get(URL+"api/users?page=2")//method type
+                .get("api/users?page=2")//method type + request parameters that to url
                 .then().log().all()// //display all data from
                 .extract().body().jsonPath().getList("data",UserData.class);
+
         users.stream().forEach(x -> Assertions.assertTrue(x.getAvatar().contains(x.getId().toString())));
+        Assertions.assertTrue(users.stream().allMatch(x->x.getEmail().endsWith("reqres.in")));
 
-
-
+        //2 option using loop
+        List<String> a vatars = users.stream().map(UserData::getAvatar).collect(Collectors.toList());
+        List<String> ids = users.stream().map(x->x.getId().toString()).collect(Collectors.toList());
+        for (int i = 0; i < avatars.size(); i++) {
+            Assertions.assertTrue(avatars.get(i).contains(ids.get(i)));
+        }
     }
 }

@@ -2,6 +2,8 @@ package Tests;
 
 import ResponseModels.Specification;
 import ResponseModels.UserData;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +11,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class CheckAvatarAndIdTest {
 
@@ -31,5 +35,27 @@ public class CheckAvatarAndIdTest {
             Assertions.assertTrue(avatars.get(i).contains(ids.get(i)));
         }
 
+    }
+    @Test
+    public void checkAvatarAndIdTest2() {
+        Specification.installSpecification(Specification.requestSpecification(), Specification.responseSpecOK200());
+        Response response = given()
+                .when()
+                .get("api/users?page=2")//
+                .then().log().all()
+                .body("page", equalTo(2))
+                .body("data.id", notNullValue())
+                .body("data.email", notNullValue())
+                .extract().response();
+
+        JsonPath jsonPath = response.jsonPath();
+        List<String> emails = jsonPath.get("data.email");
+        List<Integer> ids = jsonPath.get("data.id");
+        List<String> avatars = jsonPath.get("data.avatar");
+
+        for (int i = 0; i < avatars.size(); i++) {
+            Assertions.assertTrue(avatars.get(i).contains(ids.get(i).toString()));
+
+        }
     }
 }

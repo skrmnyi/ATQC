@@ -147,5 +147,6 @@
     <orderEntry type="library" name="Maven: com.google.auto:auto-common:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-http:4.8.1" level="project" />
     <orderEntry type="library" name="Maven: dev.failsafe:failsafe:3.3.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.2" level="project" />
   </component>
 </module>

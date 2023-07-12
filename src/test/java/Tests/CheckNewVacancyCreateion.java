@@ -17,9 +17,9 @@ public class CheckNewVacancyCreateion extends BaseSeleniumTest {
         loginPage.successfulLogin("Admin", "admin123");
         navigationBar.goToRecruitmentPage();
         recruitment.goToVacanciesSection(driver);
+        vacancy.createNewVacancy("QA Engineer");
 
-        //TO DO: fix adding data below
-        //vacancy.createNewVacancy("QA Engineer");
+
 
     }
 }

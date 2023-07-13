@@ -1,15 +1,9 @@
 package OrangeHRM;
 
 import Config.BaseSeleniumPage;
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.*;
-
-import java.time.Duration;
 
 public class MyInfoPage extends BaseSeleniumPage {
 
@@ -29,8 +23,6 @@ public class MyInfoPage extends BaseSeleniumPage {
     @FindBy(xpath = "//*[contains(@class, 'orangehrm-form-hint')]//following-sibling::button")
     public WebElement submitButton;
 
-    @FindBy(xpath = "//*[contains(@class, 'toast-message')]")
-    public WebElement successfulToaster;
 
 
     public MyInfoPage updateUserName(String firstName, String lastName) {
@@ -53,15 +45,6 @@ public class MyInfoPage extends BaseSeleniumPage {
         return middleNameInput.getAttribute("value");
     }
 
-    public String getToasterText() {
-        return successfulToaster.getText();
-    }
 
-    public void checkIfSuccessfulMessageDisplayed() {
-        submitButton.click();
-        successfulToaster = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(driver -> driver.findElement(By.xpath("//*[contains(@class, 'toast-message')]")));
-        Assertions.assertTrue(getToasterText().contains("Successfully Updated"));
-    }
 
 }

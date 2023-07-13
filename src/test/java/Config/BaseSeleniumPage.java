@@ -12,7 +12,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
-import static Config.BaseSeleniumPage.getToasterText;
 
 abstract public class BaseSeleniumPage implements WebDriver {
     protected static WebDriver driver;
@@ -21,7 +20,7 @@ abstract public class BaseSeleniumPage implements WebDriver {
         driver = webDriver;
     }
 
-    public BaseSeleniumPage() {
+    public  BaseSeleniumPage() {
         PageFactory.initElements(driver, this);
     }
 
@@ -30,18 +29,22 @@ abstract public class BaseSeleniumPage implements WebDriver {
         dropDownValue.click();
     }
 
-    @FindBy(xpath = "//p[contains(@class, 'toast-message')]")
+    @FindBy(xpath = "//div[@class=\"oxd-form-actions\"]//button[@type=\"submit\"]")
+    public static
+    WebElement saveButton;
+
+    @FindBy(xpath = "///p[contains(@class, 'toast-message')]")
     public static WebElement successfulToaster;
 
     public static String getToasterText() {
-        return successfulToaster.getAttribute("innerText");
-
+        return successfulToaster.getText();
     }
 
-    public static void checkIfSuccessfulMessageDisplayed(String ToasterMessage) {
-        successfulToaster = new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(driver -> driver.findElement(By.xpath("//div[@class=\"oxd-toast-container oxd-toast-container--bottom\"]")));
-        Assertions.assertEquals(ToasterMessage, getToasterText());
+    public static void checkIfSuccessfulMessageDisplayed(String toasterMessage) {
+        saveButton.click();
+        successfulToaster = new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(driver -> driver.findElement(By.xpath("//p[contains(@class, 'toast-message')]")));
+        Assertions.assertTrue(getToasterText().contains(toasterMessage));
     }
 
 

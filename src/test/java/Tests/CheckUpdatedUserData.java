@@ -22,7 +22,7 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
 
 
         myInfoPage.updateUserName("NewName", "NewLastName");
-        myInfoPage.submitButton.click();  // discuss on the lesson
+
 
         Assertions.assertEquals( "NewName", myInfoPage.getUserName());
         Assertions.assertEquals( "NewLastName", myInfoPage.getUserLastName());

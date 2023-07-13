@@ -1,12 +1,14 @@
 package OrangeHRM;
 
 import Config.BaseSeleniumPage;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class AddVacancy extends BaseSeleniumPage {
 
@@ -16,6 +18,10 @@ public class AddVacancy extends BaseSeleniumPage {
     @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
     private WebElement addButton;
 
+
+    public String getVacancyNameText() {
+        return vacancyNameInput.getAttribute("value");
+    }
 
     @FindBy(xpath = "//label[text()=\"Vacancy Name\"]//parent::div//following-sibling::div/input")
     private WebElement vacancyNameInput;
@@ -70,5 +76,12 @@ public class AddVacancy extends BaseSeleniumPage {
         // cant do it through general method, cause dont know how to make returned webelement in jobTitleValueAtDropDown argument
         return new AddVacancy();
     }
+
+    public AddVacancy saveChanges (){
+        saveButton.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);;
+        return new AddVacancy();
+    }
+
 
 }

@@ -22,11 +22,6 @@ public class NavigationBar extends BaseSeleniumPage {
     }
 
 
-
-    public NavigationBar() {
-        PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
-    }
-
     public MyInfoPage goToMyInfoPage() {
         myInfoMenuItem.click();
         Assertions.assertTrue(myInfoPage.getPageTitle().contains("PIM"));

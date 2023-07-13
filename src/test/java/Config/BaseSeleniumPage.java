@@ -3,6 +3,7 @@ package Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.Set;
@@ -15,10 +16,9 @@ abstract public class BaseSeleniumPage implements WebDriver {
 
     }
 
-//    public static void selectValueAtDropDown(WebElement dropDownName, WebElement dropDownValue) {
-//        dropDownName.click();
-//        dropDownValue.click();
-//    }
+    public  BaseSeleniumPage() {
+        PageFactory.initElements(driver, this);
+    }
 
     @Override
     public void get(String url) {

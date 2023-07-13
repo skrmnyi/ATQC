@@ -21,7 +21,6 @@ public class Recruitment extends BaseSeleniumPage {
 
 
     public Recruitment goToVacanciesSection(WebDriver driver) {
-        //driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewJobVacancy");
         vacancyNavButton.click();
         return new Recruitment();
     }

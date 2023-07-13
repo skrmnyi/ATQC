@@ -29,15 +29,9 @@ public class AddVacancy extends BaseSeleniumPage {
     }
 
     public void jobTitleValueAtDropDown(String jobTitle) {
-        jobTitleDropDown.findElement(By.xpath("//div[@class='oxd-select-wrapper']/div/div[text()='" + jobTitle + "']")).click();
+        jobTitleDropDown.findElement(By.xpath("//div[@role=\"option\"]/span[text()='" + jobTitle + "']")).click();
 
     }
-
-    public  AddVacancy() {
-        PageFactory.initElements(driver, this);
-    }
-
-
 
     public AddVacancy createNewVacancy(String vacancy) {
         addButton.click();

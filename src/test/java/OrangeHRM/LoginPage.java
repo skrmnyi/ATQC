@@ -22,7 +22,6 @@ public class LoginPage extends BaseSeleniumPage {
 
     public LoginPage() {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
     public NavigationBar successfulLogin(String userName, String password) {

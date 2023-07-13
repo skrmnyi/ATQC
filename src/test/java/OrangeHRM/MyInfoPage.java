@@ -32,9 +32,6 @@ public class MyInfoPage extends BaseSeleniumPage {
     @FindBy(xpath = "//*[contains(@class, 'toast-message')]")
     public WebElement successfulToaster;
 
-    public MyInfoPage() {
-        PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
-    }
 
     public MyInfoPage updateUserName(String firstName, String lastName) {
         firstNameInput.clear();

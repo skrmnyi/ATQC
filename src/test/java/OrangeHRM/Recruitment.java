@@ -12,17 +12,16 @@ import static java.lang.Thread.sleep;
 public class Recruitment extends BaseSeleniumPage {
 
 
-    @FindBy(css = "[class=\"oxd-topbar-body-nav-tab\"]")
+    @FindBy(xpath = "//a[text()='Vacancies']")
     private WebElement vacancyNavButton;
 
     public Recruitment() {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
     }
 
-
-    public Recruitment goToVacanciesSection(WebDriver driver) {
+    public Vacancies goToVacanciesSection() {
         vacancyNavButton.click();
-        return new Recruitment();
+        return new Vacancies();
     }
 
 

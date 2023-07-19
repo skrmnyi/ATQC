@@ -77,11 +77,9 @@ public class AddVacancy extends BaseSeleniumPage {
         return new AddVacancy();
     }
 
-    public AddVacancy saveChanges (){
+    public EditVacancy saveChanges (){
         saveButton.click();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);;
-        return new AddVacancy();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return new EditVacancy();
     }
-
-
 }

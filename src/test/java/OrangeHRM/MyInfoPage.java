@@ -30,7 +30,7 @@ public class MyInfoPage extends BaseSeleniumPage {
     public WebElement submitButton;
 
     @FindBy(xpath = "//*[contains(@class, 'toast-message')]")
-    public WebElement successfulToaster;
+    public static WebElement successfulToaster;
 
     public MyInfoPage() {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
@@ -56,7 +56,7 @@ public class MyInfoPage extends BaseSeleniumPage {
         return middleNameInput.getAttribute("value");
     }
 
-    public String getToasterText() {
+    public static String getToasterText() {
         return successfulToaster.getText();
     }
 

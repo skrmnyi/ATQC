@@ -30,28 +30,9 @@ public class CheckNewVacancyCreation extends BaseSeleniumTest {
         editVacancy.backToListOfVacancies();
         editVacancy.backToListOfVacancies();
 
-        int i = 0;
 
-
-        //checkIfSuccessfulMessageDisplayed("Successfully saved"); this check doesn't work
+        //checkIfSuccessfulMessageDisplayed("Successfully saved");
         //Assertions.assertEquals(addVacancy.getSubTitle(), "Edit Vacancy"); // also doesn't work as page not fully uploaded
-
-    }
-    @Test
-    public void checkSomething () {
-        LoginPage loginPage = new LoginPage();
-        NavigationBar navigationBar = new NavigationBar();
-        MyInfoPage myInfoPage = new MyInfoPage();
-        Recruitment recruitment = new Recruitment();
-        Vacancies vacancies = new Vacancies();
-
-        loginPage.successfulLogin("Admin", "admin123");
-        navigationBar.goToRecruitmentPage();
-        recruitment.goToVacanciesSection();
-
-        vacancies.printElements();
-
-
 
     }
 }

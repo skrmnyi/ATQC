@@ -4,6 +4,7 @@ import Config.BaseSeleniumTest;
 import OrangeHRM.LoginPage;
 import OrangeHRM.NavigationBar;
 import OrangeHRM.Recruitment;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CheckDeleteOfCreatedVacancy extends BaseSeleniumTest {
@@ -18,9 +19,8 @@ public class CheckDeleteOfCreatedVacancy extends BaseSeleniumTest {
         navigationBar.goToRecruitmentPage();
         recruitment.goToVacanciesSection();
         recruitment.deleteSpecificVacancy("QA new test vacancy");
-
-
-
+        Assertions.assertFalse(recruitment.checkVacancyIsDisplayed(recruitment.checkVacancyIsDisplayed("QA new test vacancy",
+                "QA Engineer", "Lisa Andrews");
     }
 }
 

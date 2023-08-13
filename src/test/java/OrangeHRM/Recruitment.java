@@ -2,7 +2,6 @@ package OrangeHRM;
 
 import Config.BaseSeleniumPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,10 +27,11 @@ public class Recruitment extends BaseSeleniumPage {
         return new Vacancies();
     }
 
-    public void checkVacancyIsDisplayed(String vacancy, String jobTitle, String hiringManager) {
+    public boolean checkVacancyIsDisplayed(String vacancy, String jobTitle, String hiringManager) {
         driver.findElement(By.xpath("//div[text()='" +vacancy+ "']")).isDisplayed();
         driver.findElement(By.xpath("//div[text()='" +jobTitle+ "']")).isDisplayed();
         driver.findElement(By.xpath("//div[text()='" +jobTitle+ "']")).isDisplayed();
+        return true;
     }
 
     public Vacancies deleteSpecificVacancy (String vacancyName) {

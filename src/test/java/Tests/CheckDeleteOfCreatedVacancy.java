@@ -19,8 +19,8 @@ public class CheckDeleteOfCreatedVacancy extends BaseSeleniumTest {
         navigationBar.goToRecruitmentPage();
         recruitment.goToVacanciesSection();
         recruitment.deleteSpecificVacancy("QA new test vacancy");
-        Assertions.assertFalse(recruitment.checkVacancyIsDisplayed(recruitment.checkVacancyIsDisplayed("QA new test vacancy",
-                "QA Engineer", "Lisa Andrews");
+        Assertions.assertFalse(recruitment.checkVacancyIsDisplayed("QA new test vacancy",
+                "QA Engineer", "Lisa Andrews"));
     }
 }
 

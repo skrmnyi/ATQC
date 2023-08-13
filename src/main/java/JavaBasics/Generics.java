@@ -12,8 +12,8 @@ public class Generics {
         integerList.add(99); // Adding another Integer, which is allowed
 
         // Trying to add different types to List<Integer> (will raise an error)
-        integerList.add(3.14); // Compilation error: incompatible types
-        integerList.add("Hello"); // Compilation error: incompatible types
+        //integerList.add(3.14); // Compilation error: incompatible types
+        //integerList.add("Hello"); // Compilation error: incompatible types
 
         List list = new ArrayList<>();
         list.add(42);

@@ -1,0 +1,12 @@
+Here are some IP addresses:
+- Server 1: 192.168.1.10
+- Server 2: 10.0.0.5
+- Client 1: 172.16.0.1
+- Client 2: 192.168.0.100
+Normal text 12.2.222.2
+ttext without ipssss
+ddd
+21323&&&&
+and some abra cadabreeadsfasdfasdf
+asdfasdf
+asdfasdf

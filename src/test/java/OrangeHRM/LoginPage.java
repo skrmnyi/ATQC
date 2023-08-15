@@ -43,6 +43,5 @@ public class LoginPage extends BaseSeleniumPage {
         log = LogManager.getLogger(this.TITLE);
         printColorMessage("Successful authorization", log, Level.INFO);
         return new NavigationBar();
-
     }
 }

@@ -1,6 +1,7 @@
 package Config;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
@@ -19,8 +20,13 @@ abstract public class BaseSeleniumTest {
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        WebDriverManager.chromedriver().setup(); //закачка та інсталяція хром браузера для подальшого використання в тестах
+
+        WebDriverManager.getInstance(DriverManagerType.CHROME).clearResolutionCache();
+        WebDriverManager.getInstance(DriverManagerType.CHROME).clearDriverCache();
+        WebDriverManager.getInstance(DriverManagerType.CHROME).setup(); //закачка та інсталяція хром браузера для подальшого використання в тестах
+
         driver = new ChromeDriver(chromeOptions);
+
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); //якщо сторінка не завантажиться за 10 сек.тест впаде

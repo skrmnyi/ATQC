@@ -9,6 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NavigationBar extends BaseSeleniumPage {
     MyInfoPage myInfoPage = new MyInfoPage();
+    public NavigationBar() {
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(xpath = "//span[text()='My Info']")
     private WebElement myInfoMenuItem;
@@ -20,7 +23,6 @@ public class NavigationBar extends BaseSeleniumPage {
         String locator = "//h6[text()='" +pageHeader + "']";
         return By.xpath(locator);
     }
-
 
     public MyInfoPage goToMyInfoPage() {
         myInfoMenuItem.click();

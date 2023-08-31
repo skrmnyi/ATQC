@@ -1,7 +1,5 @@
 package Config;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,22 +12,9 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
-import static Config.ColorPrinter.printColorMessage;
-
 
 abstract public class BaseSeleniumPage implements WebDriver {
-
-
     protected static WebDriver driver;
-
-
-//    public BaseSeleniumPage(WebDriver driver, String title) {
-//        this.driver = driver;
-//        this.title = title;
-//        this.log = LogManager.getLogger(this.title);
-//        printColorMessage("Page object of" + title + this.getClass().getName(), log, Level.DEBUG);
-//
-//    }
 
     public static void setDriver(WebDriver webDriver) {
         driver = webDriver;

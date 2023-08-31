@@ -22,6 +22,9 @@ public class DashboardPage extends BaseSeleniumPage {
     @FindBy(xpath = "//span[text()='My Info']")
     private WebElement myInfoMenuItem;
 
+    public DashboardPage() {
+        PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці
+    }
 
 
 

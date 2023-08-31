@@ -8,8 +8,6 @@ import OrangeHRM.NavigationBar;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static Config.BaseSeleniumPage.checkIfSuccessfulMessageDisplayed;
-
 
 public class CheckUpdatedUserData extends BaseSeleniumTest {
     @Test
@@ -23,9 +21,8 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
 
         myInfoPage.updateUserName("NewName", "NewLastName");
 
-
         Assertions.assertEquals( "NewName", myInfoPage.getUserName());
         Assertions.assertEquals( "NewLastName", myInfoPage.getUserLastName());
-        checkIfSuccessfulMessageDisplayed("Successfully Updated");
+        myInfoPage.checkIfSuccessfulMessageDisplayed();
     }
 }

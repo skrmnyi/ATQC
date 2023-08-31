@@ -23,7 +23,20 @@ public class Recruitment extends BaseSeleniumPage {
     @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
     private WebElement addButton;
 
+    public void checkVacancyIsDisplayed(String vacancy, String jobTitle, String hiringManager) {
+        driver.findElement(By.xpath("//div[text()='" +vacancy+ "']")).isDisplayed();
+        driver.findElement(By.xpath("//div[text()='" +jobTitle+ "']")).isDisplayed();
+        driver.findElement(By.xpath("//div[text()='" +jobTitle+ "']")).isDisplayed();
+    }
 
+    public Vacancies deleteSpecificVacancy (String vacancyName) {
+        driver.findElement(By.xpath("//div[text()='"+vacancyName+"']" +
+                "/parent::div/parent::div/div/div[@class=\"oxd-table-card-cell-checkbox\"]")).click();
+        driver.findElement(By.xpath("//button[text()=' Delete Selected ']")).click();
+        driver.findElement(By.xpath("//button[text()=' Yes, Delete ']")).click();
+        successDeleteToaster.isDisplayed();
+        return new Vacancies();
+    }
     @FindBy(xpath =  "//div/label[text()=\"Vacancy Name\"]")
     private WebElement vacancyNameInput;
 
@@ -35,6 +48,10 @@ public class Recruitment extends BaseSeleniumPage {
         String locator = "//div[@class='oxd-select-wrapper']/div/div[text()='" +jobTitle + "']";
         return By.xpath(locator);
     }
+
+    @FindBy(xpath = "//p[text()='Successfully Deleted']")
+    private WebElement successDeleteToaster;
+
 
     public Recruitment() {
         PageFactory.initElements(driver, this); //ініціалізація всіх описаних елементів на сторінці

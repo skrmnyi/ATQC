@@ -11,16 +11,29 @@ import java.util.List;
 
 public class Vacancies extends BaseSeleniumPage {
 
+    @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
+    private WebElement addButton;
 
-    List<WebElement> allTableValues = driver.findElements(By.xpath("//div[@class=\"oxd-table-card\"]/div/div/div"));
+    @FindBy(xpath = "//p[text()='Successfully Deleted']")
+    private WebElement successDeleteToaster;
 
-    public void printElements() {
-        for (WebElement element : allTableValues) {
-            System.out.println(element.getText());
-            System.out.println(element.getAttribute("value"));
-        }
+    public AddVacancy openAddVacancyPage(){
+        addButton.click();
+        return new AddVacancy();
     }
 
+    public void checkVacancyIsDisplayed(String vacancy, String jobTitle, String hiringManager) {
+        driver.findElement(By.xpath("//div[text()='" + vacancy + "']")).isDisplayed();
+        driver.findElement(By.xpath("//div[text()='" + jobTitle + "']")).isDisplayed();
+        driver.findElement(By.xpath("//div[text()='" + jobTitle + "']")).isDisplayed();
+    }
 
-
+    public Vacancies deleteSpecificVacancy(String vacancyName) {
+        driver.findElement(By.xpath("//div[text()='" + vacancyName + "']" +
+                "/parent::div/parent::div/div/div[@class=\"oxd-table-card-cell-checkbox\"]")).click();
+        driver.findElement(By.xpath("//button[text()=' Delete Selected ']")).click();
+        driver.findElement(By.xpath("//button[text()=' Yes, Delete ']")).click();
+        successDeleteToaster.isDisplayed();
+        return new Vacancies();
+    }
 }

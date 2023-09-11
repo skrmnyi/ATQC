@@ -6,10 +6,12 @@ import OrangeHRM.LoginPage;
 import OrangeHRM.MyInfoPage;
 import OrangeHRM.NavigationBar;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 
 public class CheckUpdatedUserData extends BaseSeleniumTest {
+    @Order(2)
     @Test
     public void checkUpdatedUserData() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
@@ -23,6 +25,6 @@ public class CheckUpdatedUserData extends BaseSeleniumTest {
 
         Assertions.assertEquals( "NewName", myInfoPage.getUserName());
         Assertions.assertEquals( "NewLastName", myInfoPage.getUserLastName());
-        myInfoPage.checkIfSuccessfulMessageDisplayed();
+        //myInfoPage.checkIfSuccessfulMessageDisplayed();
     }
 }

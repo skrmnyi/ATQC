@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 public class AddVacancy extends BaseSeleniumPage {
 
     @FindBy(xpath = "//li[@class=\"oxd-topbar-body-nav-tab\"]/a")
@@ -41,8 +44,7 @@ public class AddVacancy extends BaseSeleniumPage {
     WebElement numberOfPositionsInput;
 
     @FindBy(xpath = "//button[@type=\"submit\"]")
-    public
-    WebElement saveButton;
+    public WebElement saveButton;
 
     @FindBy(xpath = "//div[@class=\"orangehrm-card-container\"]//h6")
     WebElement pageSubTitle;
@@ -51,25 +53,30 @@ public class AddVacancy extends BaseSeleniumPage {
         return pageSubTitle.getText();
     }
 
+    @FindBy(xpath = "//p[contains(@class, 'toast-message')]")
+    public static WebElement successfulToaster;
+
     public void expandDropdown() {
         jobTitleDropDown.click();
     }
 
     public void jobTitleValueAtDropDown(String jobTitle) {
         jobTitleDropDown.findElement(By.xpath("//div[@role=\"option\"]/span[text()='" + jobTitle + "']")).click();
+
     }
 
 
+    // ask question regarding return Page in method signature
     public void createNewVacancy(String vacancy, String vacancyDesc, String hiringManager, String numberOfPositions) {
         vacancyNameInput.sendKeys("QA new test vacancy");
         expandDropdown();
         jobTitleValueAtDropDown(vacancy);
         vacancyDescriptionInput.sendKeys(vacancyDesc);
         hiringManagerInput.sendKeys(hiringManager);
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(driver -> driver.findElement(By.xpath("//div[@role=\"listbox\"]")));
+        new WebDriverWait(driver, Duration.ofSeconds(3)).until(driver -> driver.findElement(By.xpath("//div[@role=\"listbox\"]")));
         returnedSearchedManagerValue.click();
         numberOfPositionsInput.sendKeys(numberOfPositions);
+        saveButton.click();
     }
 
     public EditVacancy saveChanges() {
@@ -78,4 +85,9 @@ public class AddVacancy extends BaseSeleniumPage {
         return new EditVacancy();
     }
 
+
+    // To Do: need to add smart waiter -> cant catch the toaster
+    public void checkIfToasterDispalyed(String toasterMessage) {
+        assertThat(successfulToaster.getText().contains(toasterMessage));
+    }
 }

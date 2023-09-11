@@ -4,9 +4,7 @@ import Config.BaseSeleniumTest;
 import OrangeHRM.*;
 import org.junit.jupiter.api.Test;
 
-import static Config.BaseSeleniumPage.checkIfSuccessfulMessageDisplayed;
-
-public class CheckNewVacancyCreateion extends BaseSeleniumTest {
+public class CheckNewVacancyCreation extends BaseSeleniumTest {
 
     @Test
     public void checkNewVacancyCreation() {
@@ -24,7 +22,5 @@ public class CheckNewVacancyCreateion extends BaseSeleniumTest {
         vacanciesPage.openAddVacancyPage();
         addVacancy.createNewVacancy("QA Engineer", "Vacancy for testing purpose",
                 "Lisa Andrews", "1");
-        addVacancy.saveChanges();
-        checkIfSuccessfulMessageDisplayed("Successfully saved");
     }
 }

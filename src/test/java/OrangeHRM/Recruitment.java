@@ -19,22 +19,6 @@ public class Recruitment extends BaseSeleniumPage {
     @FindBy(xpath = "//li[@class=\"oxd-topbar-body-nav-tab\"]/a")
     private WebElement vacanciesSection;
 
-
-    public void checkVacancyIsDisplayed(String vacancy, String jobTitle, String hiringManager) {
-        driver.findElement(By.xpath("//div[text()='" + vacancy + "']")).isDisplayed();
-        driver.findElement(By.xpath("//div[text()='" + jobTitle + "']")).isDisplayed();
-        driver.findElement(By.xpath("//div[text()='" + jobTitle + "']")).isDisplayed();
-    }
-
-    public Vacancies deleteSpecificVacancy(String vacancyName) {
-        driver.findElement(By.xpath("//div[text()='" + vacancyName + "']" +
-                "/parent::div/parent::div/div/div[@class=\"oxd-table-card-cell-checkbox\"]")).click();
-        driver.findElement(By.xpath("//button[text()=' Delete Selected ']")).click();
-        driver.findElement(By.xpath("//button[text()=' Yes, Delete ']")).click();
-        successDeleteToaster.isDisplayed();
-        return new Vacancies();
-    }
-
     @FindBy(xpath = "//div/label[text()=\"Vacancy Name\"]")
     private WebElement vacancyNameInput;
 

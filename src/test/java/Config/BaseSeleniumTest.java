@@ -20,6 +20,7 @@ abstract public class BaseSeleniumTest {
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
+        //chromeOptions.addArguments("--headless");
 
         WebDriverManager.getInstance(DriverManagerType.CHROME).clearResolutionCache();
         WebDriverManager.getInstance(DriverManagerType.CHROME).clearDriverCache();
@@ -27,7 +28,9 @@ abstract public class BaseSeleniumTest {
 
         driver = new ChromeDriver(chromeOptions);
 
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
+
+
+        //System.setProperty("webdriver.http.factory", "jdk-http-client");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); //якщо сторінка не завантажиться за 10 сек.тест впаде
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // очікування елемента на сторінці

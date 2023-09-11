@@ -4,6 +4,8 @@ import Config.BaseSeleniumTest;
 import OrangeHRM.*;
 import org.junit.jupiter.api.Test;
 
+import static Config.BaseSeleniumPage.checkIfSuccessfulMessageDisplayed;
+
 public class CheckNewVacancyCreateion extends BaseSeleniumTest {
 
     @Test
@@ -12,14 +14,17 @@ public class CheckNewVacancyCreateion extends BaseSeleniumTest {
         NavigationBar navigationBar = new NavigationBar();
         MyInfoPage myInfoPage = new MyInfoPage();
         Recruitment recruitment = new Recruitment();
-        AddVacancy vacancy = new AddVacancy();
+        Vacancies vacanciesPage = new Vacancies();
+        AddVacancy addVacancy = new AddVacancy();
+        EditVacancy editVacancy = new EditVacancy();
 
         loginPage.successfulLogin("Admin", "admin123");
         navigationBar.goToRecruitmentPage();
         recruitment.goToVacanciesSection(driver);
-
-        //TO DO: fix adding data below
-        //vacancy.createNewVacancy("QA Engineer");
-
+        vacanciesPage.openAddVacancyPage();
+        addVacancy.createNewVacancy("QA Engineer", "Vacancy for testing purpose",
+                "Lisa Andrews", "1");
+        addVacancy.saveChanges();
+        checkIfSuccessfulMessageDisplayed("Successfully saved");
     }
 }

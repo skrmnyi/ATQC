@@ -41,7 +41,7 @@ abstract public class BaseSeleniumPage implements WebDriver {
     }
 
     public static void checkIfSuccessfulMessageDisplayed(String toasterMessage) {
-        saveButton.click();
+       // saveButton.click();
         successfulToaster = new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(driver -> driver.findElement(By.xpath("//p[contains(@class, 'toast-message')]")));
         Assertions.assertTrue(getToasterText().contains(toasterMessage));

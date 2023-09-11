@@ -11,16 +11,12 @@ import java.util.List;
 
 public class Vacancies extends BaseSeleniumPage {
 
+    @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
+    private WebElement addButton;
 
-    List<WebElement> allTableValues = driver.findElements(By.xpath("//div[@class=\"oxd-table-card\"]/div/div/div"));
-
-    public void printElements() {
-        for (WebElement element : allTableValues) {
-            System.out.println(element.getText());
-            System.out.println(element.getAttribute("value"));
-        }
+    public AddVacancy openAddVacancyPage(){
+        addButton.click();
+        return new AddVacancy();
     }
-
-
 
 }

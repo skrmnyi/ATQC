@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 public class CheckLoginTest extends BaseSeleniumTest {
-   @Order(1)
     @Test
     public void checkLoginTest() {
         LoginPage loginPage = new LoginPage();

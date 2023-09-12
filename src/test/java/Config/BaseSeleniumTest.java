@@ -20,7 +20,7 @@ abstract public class BaseSeleniumTest {
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
 
         WebDriverManager.getInstance(DriverManagerType.CHROME).clearResolutionCache();
         WebDriverManager.getInstance(DriverManagerType.CHROME).clearDriverCache();

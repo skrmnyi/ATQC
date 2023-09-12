@@ -1,7 +1,6 @@
 package Tests;
 
 
-import com.sun.tools.javac.comp.Check;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 

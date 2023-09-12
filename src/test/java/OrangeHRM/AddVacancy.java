@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class AddVacancy extends BaseSeleniumPage {
 
@@ -53,7 +51,7 @@ public class AddVacancy extends BaseSeleniumPage {
         return pageSubTitle.getText();
     }
 
-    @FindBy(xpath = "//p[contains(@class, 'toast-message')]")
+    @FindBy(xpath = "//p[text()='Successfully Saved']")
     public static WebElement successfulToaster;
 
     public void expandDropdown() {
@@ -67,7 +65,7 @@ public class AddVacancy extends BaseSeleniumPage {
 
 
     // ask question regarding return Page in method signature
-    public void createNewVacancy(String vacancy, String vacancyDesc, String hiringManager, String numberOfPositions) {
+    public EditVacancy createNewVacancy(String vacancy, String vacancyDesc, String hiringManager, String numberOfPositions) {
         vacancyNameInput.sendKeys("QA new test vacancy");
         expandDropdown();
         jobTitleValueAtDropDown(vacancy);
@@ -77,6 +75,7 @@ public class AddVacancy extends BaseSeleniumPage {
         returnedSearchedManagerValue.click();
         numberOfPositionsInput.sendKeys(numberOfPositions);
         saveButton.click();
+        return new EditVacancy();
     }
 
     public EditVacancy saveChanges() {
@@ -87,7 +86,7 @@ public class AddVacancy extends BaseSeleniumPage {
 
 
     // To Do: need to add smart waiter -> cant catch the toaster
-    public void checkIfToasterDispalyed(String toasterMessage) {
-        assertThat(successfulToaster.getText().contains(toasterMessage));
-    }
+//    public void checkIfToasterDispalyed(String toasterMessage) {
+//        assertThat(successfulToaster.getText().contains(toasterMessage));
 }
+
